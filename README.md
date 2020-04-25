@@ -4,8 +4,8 @@
 
 - Jonathan de Jesús Chávez Tabares
 - Carolina Pérez Alvarado
-- Luis
-- Agustín
+- Agustín Salvador Quintanar de la Mora
+- Luis Delgado
 
 ## Organización de archivos
 
@@ -39,3 +39,9 @@ Si se quiere imprimir los elementos seleccionados incluya: `-D ELEMENTS`.
 Si se quiere correr la version optimizada de greedy incluya: `-D OPTIMIZE`.
 
 2. Una vez compilado, se generará el archivo `ejecutable.out`, este puede ejecutarse y recibir entrada por standard input. Para ejecutar una prueba ejecute el siguiente comando: `ejecutable.out < tests/dp01.txt > resultados.txt`. Esto guardará los resultados en `resultados.txt`.
+
+---
+
+![Page 1](https://drive.google.com/uc?export=view&id=1CqP0QQmm3lSQ2FX_Fnp9VRcLzERtmaDj)
+![Page 2](https://drive.google.com/uc?export=view&id=1lmFPpRXft0YG_AI0iEVLErr4uuz0R3u9)
+![Page 3](https://drive.google.com/uc?export=view&id=16dajQRfP5UowRcB3OYJKbGpgCiqU4TtL)
