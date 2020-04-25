@@ -2,25 +2,29 @@
 
 ## Autores
 
-* Jonathan de Jesús Chávez Tabares
-* Carolina Pérez Alvarado
-* Luis
-* Agustín
+- Jonathan de Jesús Chávez Tabares
+- Carolina Pérez Alvarado
+- Luis
+- Agustín
 
 ## Organización de archivos
 
-Existen dos carpetas:
+Existen tres carpetas:
 
-* **DP**
+- **DP**
 
-* **Greedy**
+- **Greedy**
 
-Cada una contiene lo siguiente:
+- **TestCasesGenerator**
 
-* `main.cpp`: Código fuente del problema.
-* `resultados.txt`: Archivo de texto con la respuesta a la instancia del problema.
-* `tests`: Carpeta que contiene los tests de prueba en formato *.txt*.
-* `ejecutable.out`: Archivo ejecutable (no existe al inicio).
+Las primeras dos contienen lo siguiente:
+
+- `main.cpp`: Código fuente del problema.
+- `resultados.txt`: Archivo de texto con la respuesta a la instancia del problema.
+- `tests`: Carpeta que contiene los tests de prueba en formato _.txt_.
+- `ejecutable.out`: Archivo ejecutable (no existe al inicio).
+
+La última es un programa para generar test cases.
 
 ## Instrucciones de ejecución
 
