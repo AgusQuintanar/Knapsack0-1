@@ -19,8 +19,20 @@ int main(){
 	vector<int> b(n); // Beneficios
 	vector<int> w(n); // Pesos
 
-	for(int i=0; i<n; i++) cin>>b[i];
-	for(int i=0; i<n; i++) cin>>w[i];
+	for(int i=0; i<n; i++){
+		cin>>b[i];
+		if(b[i] <=0 ){
+			cerr<<"Error en input"<<endl;
+			return -1;
+		}
+	}
+	for(int i=0; i<n; i++){
+		cin>>w[i];
+		if(w[i] <=0 ){
+			cerr<<"Error en input"<<endl;
+			return -1;
+		}
+	}
 
 
 	int k; // Capacidad de mochila
