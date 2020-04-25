@@ -13,10 +13,10 @@ using namespace std;
 #include <iomanip>
 
 typedef struct {
-   unsigned int originalIndex; 
+   long long int originalIndex; 
    float pb; // weight- profit
-   unsigned int weight;
-   unsigned int profit;
+   long long int weight;
+   long long int profit;
 } Item;
 
 bool comparePB(Item i1, Item i2) {
@@ -24,18 +24,18 @@ bool comparePB(Item i1, Item i2) {
 } 
 
 
-void solve(unsigned int n, vector<Item> &items, unsigned int k){
+void solve(long long int n, vector<Item> &items, long long int k){
 	//Knapsack 0-1
 	//Dados los weights y profits, encuentra el máximo profit que
 	//puede lograr una mochila con cierta capacidad tomando máximo 1 elemento.
-    vector<int> usedItems (n);
+    vector<long long int> usedItems (n);
     sort(items.begin(), items.end(), comparePB);
 
-    unsigned int maxprofit = 0, 
+    long long int maxprofit = 0, 
                  carriedWeight = 0;
 	Item currentItem;
 
-    for (int i=0; i<n; i++) {
+    for (long long int i=0; i<n; i++) {
         currentItem = items[i];
         if (currentItem.weight + carriedWeight > k) break; //si se pasa del peso
         else {
@@ -57,25 +57,32 @@ int main(){
 	cin.tie(0);
     cout.tie(0);
 
-	unsigned int n; // Num. de elementos
+	long long int n; // Num. de elementos
 	cin>>n;
-    vector<unsigned int> p(n); // profits
-    for(unsigned int i=0; i<n; i++) cin>>p[i];
+    vector<long long int> p(n); // profits
+    for(long long int i=0; i<n; i++) cin>>p[i];
     
 	vector<Item> items(n); // Items
-    unsigned int w; // weight
+    long long int w; // weight de un objeto
 
-	for(unsigned int i=0; i<n; i++) {
-        cin >> w;
-        items[i].pb = p[i] / w;
-        items[i].originalIndex = i;
+	for(long long int i=0; i<n; i++) { // Recorre el vector de todos los items
+        items[i].pb = p[i] / w; //obtiene el beneficio / peso
+        items[i].originalIndex = i+1; //guarda el indice original (1 basado)
+        cin >> w; // toma el peso del obejto por consola
+        if (w<=0) {
+            cerr<<"Error en Input"<<endl;
+            return -1; //checa entrada invalida
+        }
         items[i].weight = w;
-        items[i].profit = p[i];
+        items[i].profit = p[i]; //asigna el beneficio del objeto
     }
 
-	unsigned int k; // Capacidad de mochila
-	cin>>k;
-
+	long long int k; // Capacidad de mochila
+	cin>>k; //toma por consola la capacidad de la mochila
+      if (k<=0) {
+            cerr<<"Error en Input"<<endl;
+            return -1; //checa entrada invalida
+    }
 	solve(n, items, k);
 
 }
