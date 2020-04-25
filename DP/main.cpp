@@ -136,6 +136,10 @@ int main(){
 
 	ulli k; // Capacidad de mochila
 	cin>>k;
-
+	
+	#ifdef OPTIMIZE
 	solveB(n, b, w, k);
+	#else
+	solveA(n, b, w, k);
+	#endif
 }
