@@ -9,13 +9,15 @@
 
 ## Organización de archivos
 
-Existen tres carpetas:
+Existen cuatro carpetas:
 
 - **DP**
 
 - **Greedy**
 
 - **TestCasesGenerator**
+
+- **Report**
 
 Las primeras dos contienen lo siguiente:
 
@@ -24,7 +26,9 @@ Las primeras dos contienen lo siguiente:
 - `tests`: Carpeta que contiene los tests de prueba en formato _.txt_.
 - `ejecutable.out`: Archivo ejecutable (no existe al inicio).
 
-La última es un programa para generar test cases.
+La tercera contiene un script para generar test cases.
+
+Y la cuarta contiene un reporte de los 2 algoritmos en Latex (el cual se encuentra en la parte de hasta abajo de este README).
 
 ## Instrucciones de ejecución
 
@@ -42,6 +46,6 @@ Si se quiere correr la version optimizada de greedy incluya: `-D OPTIMIZE`.
 
 ---
 
-![Page 1](https://drive.google.com/uc?export=view&id=1CqP0QQmm3lSQ2FX_Fnp9VRcLzERtmaDj)
-![Page 2](https://drive.google.com/uc?export=view&id=1lmFPpRXft0YG_AI0iEVLErr4uuz0R3u9)
-![Page 3](https://drive.google.com/uc?export=view&id=16dajQRfP5UowRcB3OYJKbGpgCiqU4TtL)
+![Page 1](Report/Reporte-page-001.jpg)
+![Page 2](Report/Reporte-page-002.jpg)
+![Page 3](Report/Reporte-page-003.jpg)
