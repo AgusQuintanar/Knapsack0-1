@@ -11,9 +11,10 @@
 using namespace std;
 #include <vector>
 #include <iomanip>
+#include <string>
 
 typedef struct {
-   unsigned int index;
+   unsigned int originalIndex; 
    float pb; // weight- profit
    unsigned int weight;
    unsigned int profit;
@@ -22,6 +23,7 @@ typedef struct {
 bool comparePB(Item i1, Item i2) {
    return (i1.pb > i2.pb);
 } 
+
 
 void solve(unsigned int n, vector<Item> &items, unsigned int k){
 	//Knapsack 0-1
@@ -33,26 +35,23 @@ void solve(unsigned int n, vector<Item> &items, unsigned int k){
     unsigned int maxprofit = 0, 
                  carriedWeight = 0;
 	Item currentItem;
+    string usedItems = "";
 
-    for (unsigned int i=0; i<n; i++) {
+    for (int i=0; i<n; i++) {
         currentItem = items[i];
         if (currentItem.weight + carriedWeight > k) break; //si se pasa del peso
         else {
             maxprofit += currentItem.profit;
             carriedWeight += currentItem.weight;
-            //cout << currentItem.index;
-            items[i] = {}; // elimina registro temporal
+            usedItems += to_string(currentItem.originalIndex) + " "; // accedes al vector original
         }
     }
 
     cout << maxprofit << endl;
-    cout << endl;
+    cout << usedItems << endl;
 }
 
 int main(){
-
-    time_t start, end;
-    time(&start);
 
     ios::sync_with_stdio(false);
 	cin.tie(0);
@@ -68,8 +67,8 @@ int main(){
 
 	for(unsigned int i=0; i<n; i++) {
         cin >> w;
-        items[i].index = i+1;
         items[i].pb = p[i] / w;
+        items[i].originalIndex = i+1;
         items[i].weight = w;
         items[i].profit = p[i];
     }
@@ -79,12 +78,5 @@ int main(){
 
 	solve(n, items, k);
 
-    time(&end); 
-
-    // Calculating total time taken by the program. 
-    double time_taken = double(end - start); 
-    cout << "Time taken by program is : " << fixed 
-         << time_taken << setprecision(5); 
-    cout << " sec " << endl; 
 }
 

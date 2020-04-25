@@ -14,7 +14,6 @@ using namespace std;
 
 typedef struct {
    unsigned int originalIndex; 
-   bool isCarried; // bool
    float pb; // weight- profit
    unsigned int weight;
    unsigned int profit;
@@ -24,30 +23,31 @@ bool comparePB(Item i1, Item i2) {
    return (i1.pb > i2.pb);
 } 
 
+
 void solve(unsigned int n, vector<Item> &items, unsigned int k){
 	//Knapsack 0-1
 	//Dados los weights y profits, encuentra el máximo profit que
 	//puede lograr una mochila con cierta capacidad tomando máximo 1 elemento.
-    vector<Item> tempItems = items;
-    sort(tempItems.begin(), tempItems.end(), comparePB);
+    vector<int> usedItems (n);
+    sort(items.begin(), items.end(), comparePB);
 
     unsigned int maxprofit = 0, 
-        carriedWeight = 0;
+                 carriedWeight = 0;
 	Item currentItem;
 
-    for (unsigned int i=0; i<n; i++) {
-        currentItem = tempItems[i];
+    for (int i=0; i<n; i++) {
+        currentItem = items[i];
         if (currentItem.weight + carriedWeight > k) break; //si se pasa del peso
         else {
             maxprofit += currentItem.profit;
             carriedWeight += currentItem.weight;
-            items[currentItem.originalIndex].isCarried = true; // accedes al vector original
-            tempItems[i] = {}; // elimina registro temporal
+            usedItems[currentItem.originalIndex] = 1; // accedes al vector original
+            items[i] = {}; // elimina registro temporal
         }
     }
 
     cout << maxprofit << endl;
-    for (unsigned int j=0; j<n; j++) if (items[j].isCarried) cout << "1 "; else cout << "0 ";
+    for (int j=0; j<n; j++) cout << usedItems[j] << " ";
     cout << endl;
 }
 
@@ -66,10 +66,8 @@ int main(){
     unsigned int w; // weight
 
 	for(unsigned int i=0; i<n; i++) {
-        items[i].isCarried = 0;
         cin >> w;
         items[i].pb = p[i] / w;
-        items[i].isCarried = false;
         items[i].originalIndex = i;
         items[i].weight = w;
         items[i].profit = p[i];
