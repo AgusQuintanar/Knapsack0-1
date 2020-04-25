@@ -4,7 +4,7 @@
 #include <bitset>
 
 using namespace std;
-typedef int ulli;
+typedef long long int ulli;
 
 
 ulli max(ulli a, ulli b){
@@ -69,7 +69,6 @@ void solveB(ulli n, vector<ulli> &b, vector<ulli> &w, ulli k){
     while (i < n) // one by one traverse each element 
     { 
         int j = 0; // traverse all weights j <= W 
-  
         // if i is odd that mean till now we have odd 
         // number of elements so we store result in 1th 
         // indexed row 
@@ -106,6 +105,7 @@ void solveB(ulli n, vector<ulli> &b, vector<ulli> &w, ulli k){
                     dp[0][j] = dp[1][j]; 
             } 
         } 
+       
         i++; 
     } 
   
